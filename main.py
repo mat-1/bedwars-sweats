@@ -29,7 +29,8 @@ async def lfg_command(ctx, game):
 	# If the game the user chose doesn't exist, tell them the list of possible games, and stop
 	if game not in config['lfg']:
 		lfg_games_list = list(config['lfg'])
-		await ctx.send(f'Invalid game. Possible LFG games: {lfg_games_list}')
+		lfg_games_list_str = ', '.join(lfg_games_list)
+		await ctx.send(f'Possible LFG games: {lfg_games_list_str}')
 		return
 
 	# lfg_channels is a list of channel ids that the user will be moved to
